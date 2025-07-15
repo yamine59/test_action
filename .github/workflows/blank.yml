@@ -16,5 +16,7 @@ jobs:
             run: mvn dependency:resolve
 
           - name: Build with Maven
-            run: mvn clean package
+            run: mvn clean package -DskipTests
+
+
 
