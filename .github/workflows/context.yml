@@ -1,0 +1,9 @@
+name: context.yml
+on: workflow_dispatch
+
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display context
+        run: echo ${{ toJSON(github) }}
