@@ -1,0 +1,29 @@
+name: issue.yml
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comments:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+    - name: Comment
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        ISSUE_URL: ${{github.event.issue.html_url}}
+      run: gh issue comment $ISSUE_URL -b "merci d'avoir signalé cette erreur"
+
+    - name: Comment2
+      uses: actions/github-script@v5
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: 'Hello world'
+          })
+          
