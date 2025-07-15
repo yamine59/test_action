@@ -13,8 +13,8 @@ jobs:
               java-version: '21'
 
           - name: Install dependencies
-            run: mvn install
+            run: mvn dependency:resolve
 
           - name: Build with Maven
-            run: mvn -B package --file pom.xml
+            run: mvn clear package
 
