@@ -10,10 +10,12 @@ jobs:
               with:
                   distribution: 'jetbrains' # See 'Supported distributions' for available options
                   java-version: '21'
-            - run: java ExStudentApplication.java
+
 
             - name: install dependencies
               run: mvn install
 
             - name: package
               run: mvn clean package
+
+            - run: java ExStudentApplication.java
