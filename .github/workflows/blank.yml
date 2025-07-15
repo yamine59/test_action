@@ -1,5 +1,9 @@
 name: CI
-on: push
+on:
+    push:
+        branches:
+            - main
+
 
 jobs:
     premier-job:
@@ -11,6 +15,7 @@ jobs:
               java-version: '21'
 
           - uses: actions/checkout@v4
+
           - name: Install dependencies
             run: mvn dependency:resolve
 
