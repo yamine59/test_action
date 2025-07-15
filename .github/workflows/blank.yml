@@ -16,5 +16,5 @@ jobs:
             run: mvn dependency:resolve
 
           - name: Build with Maven
-            run: mvn clear package
+            run: mvn clean package
 
