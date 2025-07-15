@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="fragments :: bootstrapImports"></th:block>
+</head>
+<body>
+<th:block th:replace="fragments :: navbar"></th:block>
+
+<div class="container w-100 d-flex justify-content-center align-items-center m-auto" th:if="${student}">
+    <div class="card text-center w-50">
+        <div class="card-header d-flex flex-row justify-content-center gap-3">
+            <h2 th:text="${student.lastname.toUpperCase()}"></h2>
+            <h2 th:text="${student.firstname.substring(0,1).toUpperCase() + student.firstname.substring(1)}"></h2>
+        </div>
+        <div class="card-body">
+            <p th:text="${student.email}"></p>
+            <p> <span th:text="${student.age}"></span> ans</p>
+        </div>
+        <div class="card-footer">
+            <a th:href="@{/update/{id}(id=${student.id})}" class="btn btn-primary">Modifier</a>
+            <a th:href="@{/delete/{id}(id=${student.id})}" class="btn btn-danger">Supprimer</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

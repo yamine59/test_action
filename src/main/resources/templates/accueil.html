@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil - Gestion Étudiants</title>
+    <th:block th:replace="fragments :: bootstrapImports"></th:block>
+</head>
+<body>
+
+<th:block th:replace="fragments :: navbar"></th:block>
+
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">Bienvenue sur l'application de gestion des étudiants</h1>
+        <p class="lead">Cette application web vous permet de gérer facilement vos étudiants : création, consultation, recherche et plus encore.</p>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h3>Fonctionnalités principales :</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">✅ Ajouter un étudiant (nom, prénom, âge, email)</li>
+                <li class="list-group-item">✅ Lister tous les étudiants enregistrés</li>
+                <li class="list-group-item">✅ Rechercher un étudiant par son nom</li>
+                <li class="list-group-item">✅ Voir les détails complets d’un étudiant</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Liste des étudiants</h5>
+                    <p class="card-text">Accédez à la liste complète de tous les étudiants enregistrés dans le système.</p>
+                    <a href="#" th:href="@{/list}" class="btn btn-primary">Voir la liste</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Ajouter un étudiant</h5>
+                    <p class="card-text">Remplissez un formulaire simple pour ajouter un nouvel étudiant dans la base.</p>
+                    <a href="#" th:href="@{/register}" class="btn btn-success">S'inscrire</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Rechercher un étudiant</h5>
+                    <p class="card-text">Trouvez rapidement un étudiant en saisissant son nom de famille.</p>
+                    <form method="get" th:action="@{/list}">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="lastname" placeholder="Entrer un nom">
+                            <button class="btn btn-outline-secondary" type="submit">Rechercher</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="text-center">
+        <p class="text-muted">© 2025 yamineB® — Tous droits réservés.</p>
+        <p class="text-muted">Projet éducatif : Application de gestion d'étudiants - version de démonstration</p>
+    </div>
+</div>
+
+</body>
+</html>
