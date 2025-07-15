@@ -7,3 +7,14 @@ jobs:
     steps:
       - name: Display context
         run: echo "${{ toJSON(github) }}"
+
+  variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: mes variables d'environnement
+        env:
+          MA_VARIABLE: ${{ vars.MA_VARIABLE }}
+          MON_SECRET: ${{ secrets.MON_SECRET }}
+        run: |
+          echo "MA_VARIABLE: $MA_VARIABLE"
+          echo "MON_SECRET: $MON_SECRET"
