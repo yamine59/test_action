@@ -18,7 +18,7 @@ jobs:
           password: ${{ env.PASSWORD }}
       - uses: actions/checkout@v4
       - name: build
-        run: docker build -t $USERNAME/gestionstudent .
+        run: docker buildx build --tag $USERNAME/gestionstudent --output=type=docker .
       - name: push
         run: docker push $USERNAME/gestionstudent
 
