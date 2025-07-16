@@ -1,0 +1,18 @@
+name: issue.yml
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comments:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+    - name: Comment
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        ISSUE_URL: ${{github.event.issue.html_url}}
+        AUTHOR: ${{github.event.issue.user.login}}
+        ISSUE_NAME: ${{github.event.issue.title}}
+      run: gh issue comment $ISSUE_URL -b "Bonjour $AUTHOR, nous avons bien pris en compte votre probleme du nom de :\ $ISSUE_NAME "

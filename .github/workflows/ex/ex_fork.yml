@@ -1,0 +1,11 @@
+name: ex_fork.yml
+on:
+  fork:
+    types: [created]
+
+jobs:
+  fork:
+    runs-on: ubuntu-latest
+    steps:
+      - name: fork
+        run: echo "fork de ${{ github.actor }} sur le repo :\ ${{ github.repository }}"
