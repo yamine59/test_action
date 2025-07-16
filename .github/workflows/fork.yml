@@ -1,7 +1,6 @@
 name: fork.yml
 on:
-  fork:
-    types: [created]
+  - fork
 
 jobs:
   fork:
