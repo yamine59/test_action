@@ -3,7 +3,6 @@ on:
     push:
     workflow_dispatch:
 
-
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -18,7 +17,7 @@ jobs:
           password: ${{ env.PASSWORD }}
       - uses: actions/checkout@v4
       - name: build
-        run: docker build -t $USERNAME/gestionstudent .
+        run: docker build -t $USERNAME/actionimage .
       - name: push
-        run: docker push $USERNAME/gestionstudent
+        run: docker push $USERNAME/actionimage
 
