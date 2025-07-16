@@ -15,10 +15,9 @@ jobs:
         with:
           username: ${{ env.USERNAME }}
           password: ${{ env.PASSWORD }}
-      - name: checkout
       - uses: actions/checkout@v4
       - name: build
-        run: docker build -t $USERNAME/gestionstudent .
+        run: docker build -t $USERNAME/actionimage2 .
       - name: push
-        run: docker push $USERNAME/gestionstudent
+        run: docker push $USERNAME/actionimage2
 
