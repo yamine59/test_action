@@ -1,4 +1,4 @@
-name: ex_fork.yml
+name: fork.yml
 on:
   fork:
     types: [created]
